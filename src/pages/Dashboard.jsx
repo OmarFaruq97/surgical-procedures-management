@@ -50,46 +50,46 @@ const Dashboard = () => {
     <div className="p-8 ml-64 min-h-screen bg-gray-50">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">Surgical Dashboard</h1>
-        <p className="text-gray-600">Welcome to the Surgical Procedures Management System</p>
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">সার্জিক্যাল ড্যাশবোর্ড</h1>
+        <p className="text-gray-600">সার্জিক্যাল প্রসিডিউর ম্যানেজমেন্ট সিস্টেমে স্বাগতম</p>
       </div>
 
       {/* Key Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-8">
         <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
           <div className="text-2xl font-bold text-gray-800">{surgicalStats.totalProcedures}</div>
-          <div className="text-sm text-gray-600">Total Procedures</div>
-          <div className="text-xs text-green-600 mt-1">+12% this month</div>
+          <div className="text-sm text-gray-600">মোট প্রসিডিউর</div>
+          <div className="text-xs text-green-600 mt-1">+12% এই মাসে</div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
           <div className="text-2xl font-bold text-gray-800">{surgicalStats.successRate}%</div>
-          <div className="text-sm text-gray-600">Success Rate</div>
-          <div className="text-xs text-green-600 mt-1">+2.3% from last month</div>
+          <div className="text-sm text-gray-600">সাফল্যের হার</div>
+          <div className="text-xs text-green-600 mt-1">+2.3% গত মাস থেকে</div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
           <div className="text-2xl font-bold text-gray-800">{surgicalStats.avgProcedureTime}h</div>
-          <div className="text-sm text-gray-600">Avg. Procedure Time</div>
-          <div className="text-xs text-green-600 mt-1">-0.4h improvement</div>
+          <div className="text-sm text-gray-600">গড় প্রসিডিউর সময়</div>
+          <div className="text-xs text-green-600 mt-1">-0.4h উন্নতি</div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-yellow-500">
           <div className="text-2xl font-bold text-gray-800">${(surgicalStats.revenue / 1000000).toFixed(1)}M</div>
-          <div className="text-sm text-gray-600">Revenue</div>
+          <div className="text-sm text-gray-600">রেভেনিউ</div>
           <div className="text-xs text-green-600 mt-1">+15% YTD</div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-500">
           <div className="text-2xl font-bold text-gray-800">{surgicalStats.pendingProcedures}</div>
-          <div className="text-sm text-gray-600">Pending Procedures</div>
-          <div className="text-xs text-gray-600 mt-1">Scheduled this week</div>
+          <div className="text-sm text-gray-600">বিচারাধীন প্রসিডিউর</div>
+          <div className="text-xs text-gray-600 mt-1">এই সপ্তাহে নির্ধারিত</div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-indigo-500">
           <div className="text-2xl font-bold text-gray-800">{surgicalStats.completedToday}</div>
-          <div className="text-sm text-gray-600">Completed Today</div>
-          <div className="text-xs text-gray-600 mt-1">As of now</div>
+          <div className="text-sm text-gray-600">আজ সম্পন্ন</div>
+          <div className="text-xs text-gray-600 mt-1">এখন পর্যন্ত</div>
         </div>
       </div>
 
@@ -98,15 +98,15 @@ const Dashboard = () => {
         {/* Revenue Trend Chart */}
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold">Revenue Trend</h3>
+            <h3 className="text-lg font-semibold">রেভেনিউ ট্রেন্ড</h3>
             <select 
               className="text-sm border rounded px-3 py-1"
               value={timeRange}
               onChange={(e) => setTimeRange(e.target.value)}
             >
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-              <option value="quarterly">Quarterly</option>
+              <option value="weekly">সাপ্তাহিক</option>
+              <option value="monthly">মাসিক</option>
+              <option value="quarterly">ত্রৈমাসিক</option>
             </select>
           </div>
           <ResponsiveContainer width="100%" height={300}>
@@ -114,7 +114,7 @@ const Dashboard = () => {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
-              <Tooltip formatter={(value) => [`$${value.toLocaleString()}`, 'Revenue']} />
+              <Tooltip formatter={(value) => [`$${value.toLocaleString()}`, 'রেভেনিউ']} />
               <Line type="monotone" dataKey="revenue" stroke="#8884d8" strokeWidth={2} />
             </LineChart>
           </ResponsiveContainer>
@@ -122,7 +122,7 @@ const Dashboard = () => {
 
         {/* Procedure Distribution */}
         <div className="bg-white p-6 rounded-lg shadow-sm">
-          <h3 className="text-lg font-semibold mb-4">Procedure Distribution</h3>
+          <h3 className="text-lg font-semibold mb-4">প্রসিডিউর বন্টন</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -138,7 +138,7 @@ const Dashboard = () => {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <Tooltip formatter={(value) => [value, 'Procedures']} />
+              <Tooltip formatter={(value) => [value, 'প্রসিডিউর']} />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -148,7 +148,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Upcoming Procedures */}
         <div className="bg-white p-6 rounded-lg shadow-sm">
-          <h3 className="text-lg font-semibold mb-4">Today's Schedule</h3>
+          <h3 className="text-lg font-semibold mb-4">আজকের সময়সূচী</h3>
           <div className="space-y-3">
             {upcomingProcedures.map((procedure) => (
               <div key={procedure.id} className="flex items-center justify-between p-3 border rounded-lg">
@@ -163,7 +163,7 @@ const Dashboard = () => {
                       ? 'bg-blue-100 text-blue-800'
                       : 'bg-yellow-100 text-yellow-800'
                   }`}>
-                    {procedure.status}
+                    {procedure.status === 'Scheduled' ? 'নির্ধারিত' : 'প্রি-অপ'}
                   </div>
                 </div>
               </div>
@@ -173,11 +173,16 @@ const Dashboard = () => {
 
         {/* Quick Stats */}
         <div className="bg-white p-6 rounded-lg shadow-sm">
-          <h3 className="text-lg font-semibold mb-4">Performance Metrics</h3>
+          <h3 className="text-lg font-semibold mb-4">পারফরম্যান্স মেট্রিক্স</h3>
           <div className="grid grid-cols-1 gap-4">
             {quickStats.map((stat, index) => (
               <div key={index} className="flex items-center justify-between">
-                <span className="text-gray-700">{stat.title}</span>
+                <span className="text-gray-700">
+                  {stat.title === 'OR Utilization' && 'OR ব্যবহার'
+                  || stat.title === 'Patient Satisfaction' && 'রোগী সন্তুষ্টি'
+                  || stat.title === 'Avg. Wait Time' && 'গড় অপেক্ষার সময়'
+                  || stat.title === 'Staff Availability' && 'স্টাফ প্রাপ্যতা'}
+                </span>
                 <div className="flex items-center gap-2">
                   <span className="font-semibold">{stat.value}</span>
                   <span className={`text-xs ${
