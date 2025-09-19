@@ -12,7 +12,8 @@ const ProceduresTable = ({ procedures, onEdit, onDelete }) => {
       (filterType === "all" || proc.surgeryType === filterType)
   );
 
-  const surgeryTypes = ["Appendectomy", "Bypass", "Cataract"]; // For filter dropdown
+  const surgeryTypes = ["Brain Replace", "Bypass", "Cataract", "Cholecystectomy","Liver Transplant",
+  "Kidney Transplant"]; // For filter dropdown
 
   return (
     <div className="mt-8">

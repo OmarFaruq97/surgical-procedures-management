@@ -35,6 +35,7 @@ const Dashboard = () => {
     { month: "Apr", procedures: 105, revenue: 345000, complications: 4 },
     { month: "May", procedures: 120, revenue: 420000, complications: 6 },
     { month: "Jun", procedures: 98, revenue: 335000, complications: 2 },
+    { month: "Dec", procedures: 95, revenue: 332000, complications: 1 },
   ];
 
   const procedureTypes = [
@@ -74,6 +75,13 @@ const Dashboard = () => {
       procedure: "Hip Replacement",
       time: "03:00 PM",
       status: "Pre-op",
+    },
+    {
+      id: 5,
+      patient: "Iqram",
+      procedure: "Brain Replacement",
+      time: "25:62 PM",
+      status: "Scheduled",
     },
   ];
 

@@ -20,4 +20,11 @@ export const initialProcedures = [
     surgeonName: "Dr. Lee",
     date: "2025-09-10",
   },
+  {
+    id: 4,
+    patientName: "Iqram",
+    surgeryType: "Brain Replace",
+    surgeonName: "Dr. Jonab Omar e al Faruq",
+    date: "2025-09-10",
+  },
 ];
