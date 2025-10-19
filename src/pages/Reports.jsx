@@ -1,61 +1,91 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+} from "recharts";
 
 const Reports = () => {
   // Sample data for surgical procedures
   const procedureData = [
-    { name: 'Cardiac', count: 45, revenue: 125000 },
-    { name: 'Orthopedic', count: 78, revenue: 189000 },
-    { name: 'Neurological', count: 32, revenue: 156000 },
-    { name: 'General', count: 120, revenue: 240000 },
-    { name: 'Plastic', count: 28, revenue: 98000 },
-    { name: 'Ophthalmic', count: 65, revenue: 145000 }
+    { name: "Cardiac", count: 45, revenue: 125000 },
+    { name: "Orthopedic", count: 78, revenue: 189000 },
+    { name: "Neurological", count: 32, revenue: 156000 },
+    { name: "General", count: 120, revenue: 240000 },
+    { name: "Plastic", count: 28, revenue: 98000 },
+    { name: "Ophthalmic", count: 65, revenue: 145000 },
   ];
 
   // Monthly statistics
   const monthlyStats = [
-    { month: 'Jan', procedures: 85, revenue: 285000 },
-    { month: 'Feb', procedures: 92, revenue: 312000 },
-    { month: 'Mar', procedures: 78, revenue: 265000 },
-    { month: 'Apr', procedures: 105, revenue: 345000 },
-    { month: 'May', procedures: 120, revenue: 420000 },
-    { month: 'Jun', procedures: 98, revenue: 335000 }
+    { month: "Jan", procedures: 85, revenue: 285000 },
+    { month: "Feb", procedures: 92, revenue: 312000 },
+    { month: "Mar", procedures: 78, revenue: 265000 },
+    { month: "Apr", procedures: 105, revenue: 345000 },
+    { month: "May", procedures: 120, revenue: 420000 },
+    { month: "Jun", procedures: 98, revenue: 335000 },
   ];
 
   // Success rates by procedure type
   const successRateData = [
-    { name: 'Cardiac', value: 92 },
-    { name: 'Orthopedic', value: 88 },
-    { name: 'Neurological', value: 85 },
-    { name: 'General', value: 95 },
-    { name: 'Plastic', value: 90 },
-    { name: 'Ophthalmic', value: 94 }
+    { name: "Cardiac", value: 92 },
+    { name: "Orthopedic", value: 88 },
+    { name: "Neurological", value: 85 },
+    { name: "General", value: 95 },
+    { name: "Plastic", value: 90 },
+    { name: "Ophthalmic", value: 94 },
   ];
 
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8', '#82CA9D'];
+  const COLORS = [
+    "#0088FE",
+    "#00C49F",
+    "#FFBB28",
+    "#FF8042",
+    "#8884D8",
+    "#82CA9D",
+  ];
 
   // Key metrics
   const metrics = [
-    { title: 'Total Procedures', value: '458', change: '+12%', trend: 'up' },
-    { title: 'Success Rate', value: '91.5%', change: '+2.3%', trend: 'up' },
-    { title: 'Avg. Procedure Time', value: '2.8h', change: '-0.4h', trend: 'down' },
-    { title: 'Revenue', value: '$1.76M', change: '+15%', trend: 'up' }
+    { title: "Total Procedures", value: "458", change: "+12%", trend: "up" },
+    { title: "Success Rate", value: "91.5%", change: "+2.3%", trend: "up" },
+    {
+      title: "Avg. Procedure Time",
+      value: "2.8h",
+      change: "-0.4h",
+      trend: "down",
+    },
+    { title: "Revenue", value: "$1.76M", change: "+15%", trend: "up" },
   ];
 
   return (
     <div className="p-8 ml-64">
       <h1 className="text-2xl font-bold mb-6">Surgical Reports & Analytics</h1>
-      
+
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {metrics.map((metric, index) => (
           <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-gray-600 text-sm font-medium">{metric.title}</h3>
-            <p className="text-2xl font-bold text-gray-800 mt-2">{metric.value}</p>
-            <div className={`flex items-center mt-2 ${
-              metric.trend === 'up' ? 'text-green-600' : 'text-red-600'
-            }`}>
+            <h3 className="text-gray-600 text-sm font-medium">
+              {metric.title}
+            </h3>
+            <p className="text-2xl font-bold text-gray-800 mt-2">
+              {metric.value}
+            </p>
+            <div
+              className={`flex items-center mt-2 ${
+                metric.trend === "up" ? "text-green-600" : "text-red-600"
+              }`}
+            >
               <span className="text-sm">{metric.change}</span>
-              <span className="ml-1">{metric.trend === 'up' ? '↑' : '↓'}</span>
+              <span className="ml-1">{metric.trend === "up" ? "↑" : "↓"}</span>
             </div>
           </div>
         ))}
@@ -86,7 +116,9 @@ const Reports = () => {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
-              <Tooltip formatter={(value) => [`$${value.toLocaleString()}`, 'Revenue']} />
+              <Tooltip
+                formatter={(value) => [`$${value.toLocaleString()}`, "Revenue"]}
+              />
               <Legend />
               <Bar dataKey="revenue" fill="#00C49F" name="Revenue ($)" />
             </BarChart>
@@ -96,7 +128,9 @@ const Reports = () => {
 
       {/* Success Rates */}
       <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-        <h3 className="text-lg font-semibold mb-4">Success Rates by Procedure Type</h3>
+        <h3 className="text-lg font-semibold mb-4">
+          Success Rates by Procedure Type
+        </h3>
         <ResponsiveContainer width="100%" height={300}>
           <PieChart>
             <Pie
@@ -111,10 +145,13 @@ const Reports = () => {
               nameKey="name"
             >
               {successRateData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
               ))}
             </Pie>
-            <Tooltip formatter={(value) => [`${value}%`, 'Success Rate']} />
+            <Tooltip formatter={(value) => [`${value}%`, "Success Rate"]} />
           </PieChart>
         </ResponsiveContainer>
       </div>
@@ -135,12 +172,21 @@ const Reports = () => {
             </thead>
             <tbody>
               {procedureData.map((procedure, index) => (
-                <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <tr
+                  key={index}
+                  className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                >
                   <td className="px-4 py-2 border">{procedure.name}</td>
                   <td className="px-4 py-2 border">{procedure.count}</td>
-                  <td className="px-4 py-2 border">${procedure.revenue.toLocaleString()}</td>
-                  <td className="px-4 py-2 border">{Math.random() * 3 + 1.5.toFixed(1)}h</td>
-                  <td className="px-4 py-2 border">{successRateData[index].value}%</td>
+                  <td className="px-4 py-2 border">
+                    ${procedure.revenue.toLocaleString()}
+                  </td>
+                  <td className="px-4 py-2 border">
+                    {Math.random() * 3 + (1.5).toFixed(1)}h
+                  </td>
+                  <td className="px-4 py-2 border">
+                    {successRateData[index].value}%
+                  </td>
                 </tr>
               ))}
             </tbody>

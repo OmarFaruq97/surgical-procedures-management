@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import "./index.css";
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './index.css';
-import Sidebar from './components/Layout/Sidebar';
-import Dashboard from './pages/Dashboard';
-import Procedures from './pages/Procedures';
-import Reports from './pages/Reports';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./index.css";
+import Sidebar from "./components/Layout/Sidebar";
+import Dashboard from "./pages/Dashboard";
+import Procedures from "./pages/Procedures";
+import Reports from "./pages/Reports";
 
 const App = () => {
   return (
@@ -24,5 +24,5 @@ const App = () => {
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
