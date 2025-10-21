@@ -10,6 +10,7 @@ const Sidebar = () => {
           <li><Link to="/procedures" className="block py-2 px-4 hover:bg-gray-700 rounded">Surgical Procedures</Link></li>
           <li><Link to="/reports" className="block py-2 px-4 hover:bg-gray-700 rounded">Reports</Link></li>
           <li><Link to="/" className="block py-2 px-4 hover:bg-gray-700 rounded">Test</Link></li>
+          <li><Link to="/" className="block py-2 px-4 hover:bg-gray-700 rounded">Test2</Link></li>
         </ul>
       </nav>
     </aside>
