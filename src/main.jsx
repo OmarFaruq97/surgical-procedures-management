@@ -7,6 +7,7 @@ import Sidebar from "./components/Layout/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Procedures from "./pages/Procedures";
 import Reports from "./pages/Reports";
+import NotFound from "./pages/NotFound ";
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
           <Route path="/procedures" element={<Procedures />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/" element={<Dashboard />} />
-          <Route path="/*" element={<Dashboard />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
