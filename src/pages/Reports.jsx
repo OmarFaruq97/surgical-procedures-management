@@ -32,6 +32,7 @@ const Reports = () => {
     { month: "May", procedures: 120, revenue: 420000 },
     { month: "Jun", procedures: 98, revenue: 335000 },
     { month: "Jul", procedures: 91, revenue: 396000 },
+    { month: "Aug", procedures: 90, revenue: 386000 },
   ];
 
   // Success rates by procedure type
